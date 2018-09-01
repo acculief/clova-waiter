@@ -1,6 +1,7 @@
 class Api::V1::OrdersController < ApplicationController
 
   def create
+    binding.pry
     order = Order.new(order_params)
 
     if order.save
@@ -14,7 +15,7 @@ class Api::V1::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:order_name, :order_amount, :total_price)
+    params.require(:order).permit(:order_name, :order_amount)
   end
 
 
