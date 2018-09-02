@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>IoTClovaObnizApi</title>
+    <title>Clova Waiter</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,15 @@
   </head>
 
   <body>
-    <%= yield %>
-  </body>
+    <div id="wrapper">
+        <%= render 'layouts/header' %>
+        <% flash.each do |name, msg| %>
+          <div class="alert alert-<%= name == "notice" ? "success" : "error" %>">
+            <a class="close" data-dismiss="alert">×</a> <!-- アラートダイアログに×ボタンをつける -->
+            <%= msg %>
+          </div>
+        <% end %>
+        <%= yield %>
+        </div>
+      </body>
 </html>

@@ -1,5 +1,10 @@
-<h1>注文</h1>
+<style media="screen">
+  font-family: arai, sans-self;
+</style>
+<h1>オーダー</h1>
 <% @order.each do |o| %>
   <p>商品名：<%=o.order_name%></p>
   <p>個数：<%=o.order_amount%></p>
+  <p>注文時間：<%=o.created_at%></p>
+  <%= link_to "完了", order_path(o.id), method: :delete %>
 <%end%>
