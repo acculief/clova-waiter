@@ -1,15 +1,18 @@
 class OrdersController < ApplicationController
+  before_action :set_order , only: [:destroy]
   def index
     @order = Order.all
   end
 
-  def show
-  end
-  
+
+
 
   def destroy
-  @order = Order.find_by(params[:id])
   @order.destroy
   redirect_to(orders_path)
+  end
+
+  def set_order
+    @order = Order.find_by(params[:id])
   end
 end
